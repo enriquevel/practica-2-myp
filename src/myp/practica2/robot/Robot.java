@@ -2,32 +2,63 @@ package myp.practica2.robot;
 
 public class Robot {
 
-    private RobotState sleepingState;
-    private RobotState orderState;
-    private RobotState preparingState;
-    private RobotState waitingState;
+	private RobotState state;
+
+    private final RobotState sleepingState = new SleepingState(this);
+	private final RobotState takingOrderState = new TakingOrderState(this);
+    private final RobotState orderConfirmedState = new OrderConfirmedState(this);
+    private final RobotState preparingState =  new PreparingState(this);
+	private final RobotState readyForDeliveryState =  new ReadyForDeliveryState(this);
 
     public Robot() {
-        sleepingState = new SleepingState(this);
-        orderState = new SleepingState(this);
-        preparingState = new PreparingState(this);
-        waitingState = new WaitingState(this);
-    }
-    
-    public RobotState getSleepingState() {
-        return sleepingState;
+		this.state = sleepingState;
     }
 
-    public RobotState getOrderState() {
-        return orderState;
+	public void setState(RobotState state) {
+		this.state = state;
+	}
+
+    public RobotState getSleepingState() {
+        return this.sleepingState;
     }
+
+    public RobotState getTakingOrderState() {
+        return this.takingOrderState;
+    }
+
+	public RobotState getOrderConfirmedState() {
+		return this.orderConfirmedState;
+	}
 
     public RobotState getPreparingState() {
-        return preparingState;
+        return this.preparingState;
     }
 
-    public RobotState getWaitingState() {
-        return waitingState;
+    public RobotState getReadyForDeliveryState() {
+        return this.readyForDeliveryState;
     }
-    
+
+	public void call() {
+		this.state.call();
+	}
+
+	public void takeOrder() {
+		this.state.takeOrder();
+	}
+
+	public void confirmOrder() {
+		this.state.confirmOrder();
+	}
+
+	public void cancelOrder() {
+		this.state.cancelOrder();
+	}
+
+	public void prepareOrder() {
+		this.state.prepareOrder();
+	}
+
+	public void deliverOrder() {
+		this.state.deliverOrder();
+	}
 }

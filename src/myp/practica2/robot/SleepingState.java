@@ -7,7 +7,15 @@ public class SleepingState implements RobotState {
         this.cesarinRobot = cesarinRobot;
     }
 
-    @Override
+	/**
+	 *
+	 */
+	@Override
+	public void call() {
+
+	}
+
+	@Override
     public void prepareOrder() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'prepareOrder'");
