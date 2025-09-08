@@ -1,7 +1,9 @@
-public class WaitingState implements RobotState {
-     Robot cesarinRobot;
+package myp.practica2.robot;
 
-    public WaitingState(Robot cesarinRobot) {
+public class PreparingState implements RobotState {
+    Robot cesarinRobot;
+
+    public PreparingState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
     }
 

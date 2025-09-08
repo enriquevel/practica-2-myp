@@ -1,3 +1,5 @@
+package myp.practica2.icecream;
+
 public class Mangos extends DecoratingIngredient {
 
     @Override

@@ -1,3 +1,5 @@
+package myp.practica2.robot;
+
 public class Robot {
 
     private RobotState sleepingState;

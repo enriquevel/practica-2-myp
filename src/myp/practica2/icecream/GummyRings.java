@@ -1,4 +1,6 @@
-public class GummyPandas extends DecoratingIngredient {
+package myp.practica2.icecream;
+
+public class GummyRings extends DecoratingIngredient {
 
     @Override
     public String getDescription() {

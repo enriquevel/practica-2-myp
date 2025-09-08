@@ -1,4 +1,6 @@
-public class Strawberries extends DecoratingIngredient {
+package myp.practica2.icecream;
+
+public class Kiwis extends DecoratingIngredient {
 
     @Override
     public String getDescription() {
