@@ -1,24 +1,24 @@
 package myp.practica2.pizza;
 
 /**
- * Clase que representa una pizza margarita.
+ * Clase que representa una pizza de cuatro quesos.
  */
-public class MargheritaPizza extends Pizza {
+public class FourCheesesPizza extends Pizza {
 
 	/**
-	 * Construye una pizza margarita con un tipo de masa específico.
+	 * Construye una pizza de cuatro quesos con un tipo de masa específico.
 	 * @param dough el tipo de masa de la pizza.
 	 */
-	public MargheritaPizza(Dough dough) {
-		super("P02", "Margarita", "Pizza con albahaca fresca y queso mozzarella", 99.0, true, dough);
+	public FourCheesesPizza(Dough dough) {
+		super("P04", "Cuatro Quesos", "Pizza de cuatro quesos.", 109.0, true, dough);
 	}
 
 	/**
-	 * Coloca queso mozzarella en la pizza margarita.
+	 * Coloca los cuatro quesos en la pizza de cuatro quesos.
 	 */
 	@Override
 	protected void addCheese() {
-		System.out.println("Colocando queso mozzarella.");
+		System.out.println("Agregando cuatro quesos.");
 	}
 
 	/**
