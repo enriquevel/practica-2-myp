@@ -1,6 +1,10 @@
 package myp.practica2.icecream;
 
 public abstract class DecoratingIngredient extends IceCream {
-    public abstract String getDescription();
-    
+
+	protected IceCream icecream;
+
+	public DecoratingIngredient(IceCream icecream) {
+		this.icecream = icecream;
+	}
 }

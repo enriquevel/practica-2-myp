@@ -2,10 +2,20 @@ package myp.practica2.icecream;
 
 public class Strawberries extends DecoratingIngredient {
 
-    @Override
-    public String getDescription() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDescription'");
-    }
-    
+	public Strawberries(IceCream icecream) {
+		super(icecream);
+	}
+
+	@Override
+	public String getDescription() {
+		return this.icecream.getDescription() + "+ Fresitas uwu";
+	}
+
+	/**
+	 * @return
+	 */
+	@Override
+	public double getCost() {
+		return 15.0 + this.icecream.getCost();
+	}
 }
