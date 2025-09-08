@@ -1,9 +1,20 @@
-public class SleepingState implements RobotState {
+package myp.practica2.robot;
+
+public class TakingOrderState implements RobotState {
+
     Robot cesarinRobot;
 
-    public SleepingState(Robot cesarinRobot) {
+    public TakingOrderState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
     }
+
+	/**
+	 *
+	 */
+	@Override
+	public void call() {
+
+	}
 
     @Override
     public void prepareOrder() {

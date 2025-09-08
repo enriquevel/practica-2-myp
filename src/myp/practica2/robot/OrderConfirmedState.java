@@ -1,9 +1,19 @@
-public class WaitingState implements RobotState {
+package myp.practica2.robot;
+
+public class OrderConfirmedState implements RobotState {
      Robot cesarinRobot;
 
-    public WaitingState(Robot cesarinRobot) {
+    public OrderConfirmedState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
     }
+
+	/**
+	 *
+	 */
+	@Override
+	public void call() {
+
+	}
 
     @Override
     public void prepareOrder() {

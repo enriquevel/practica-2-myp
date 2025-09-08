@@ -1,11 +1,21 @@
-public class PreparingState implements RobotState {
+package myp.practica2.robot;
+
+public class SleepingState implements RobotState {
     Robot cesarinRobot;
 
-    public PreparingState(Robot cesarinRobot) {
+    public SleepingState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
     }
 
-    @Override
+	/**
+	 *
+	 */
+	@Override
+	public void call() {
+
+	}
+
+	@Override
     public void prepareOrder() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'prepareOrder'");
