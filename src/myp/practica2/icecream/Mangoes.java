@@ -10,6 +10,8 @@ public class Mangoes extends DecoratingIngredient {
 	 */
 	public Mangoes(IceCream icecream) {
 		super(icecream);
+		this.id = "D07";
+		this.name = "Manguitos";
 	}
 
 	/**

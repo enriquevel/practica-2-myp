@@ -10,6 +10,8 @@ public class Kiwis extends DecoratingIngredient {
 	 */
 	public Kiwis(IceCream icecream) {
 		super(icecream);
+		this.id = "D08";
+		this.name = "Kiwis";
 	}
 
 	/**

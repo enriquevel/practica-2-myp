@@ -140,6 +140,15 @@ public abstract class Pizza {
 		return this.name;
 	}
 
+
+	/**
+	 * Devuelve la descripción de la pizza.
+	 * @return la descripción de la pizza.
+	 */
+	public String getDescription() {
+		return this.description;
+	}
+
 	/**
 	 * Devuelve el precio de la pizza.
 	 * @return el precio de la pizza.

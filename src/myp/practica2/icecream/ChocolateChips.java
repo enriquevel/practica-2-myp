@@ -10,6 +10,8 @@ public class ChocolateChips extends DecoratingIngredient{
 	 */
 	public ChocolateChips(IceCream icecream) {
 		super(icecream);
+		this.id = "D04";
+		this.name = "Chispas de chocolate";
 	}
 
 	/**

@@ -8,9 +8,18 @@ public enum Dough {
 	/** La masa napolitana. */
 	NAPOLITAN,
 
-	/** La masa americana. */
-	AMERICAN,
-
 	/** La masa romana. */
-	ROMAN
+	ROMAN,
+
+	/** La masa americana. */
+	AMERICAN;
+
+	public static Dough get(int choice) {
+		return switch (choice) {
+			case 1 -> NAPOLITAN;
+			case 2 -> ROMAN;
+			case 3 -> AMERICAN;
+			default -> throw new IllegalArgumentException("Invalid dough choice: " + choice);
+		};
+	}
 }

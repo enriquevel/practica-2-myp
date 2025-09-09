@@ -1,7 +1,10 @@
 package myp.practica2.robot;
 
+/**
+ * Clase que representa el estado del robot cuando se encuentra en su estado orden confirmada.
+ */
 public class OrderConfirmedState implements RobotState {
-     Robot cesarinRobot;
+	private Robot cesarinRobot;
 
     public OrderConfirmedState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
@@ -17,32 +20,35 @@ public class OrderConfirmedState implements RobotState {
 
     @Override
     public void prepareOrder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'prepareOrder'");
+        System.out.println("Procediendo a preparar tu orden.")
+        cesarinRobot.setState(cesarinRobot.getPreparingState());    
     }
 
     @Override
-    public void takeOrder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'takeOrder'");
+    public void takePizzaOrder() {
+
     }
+
+    @Override
+    public void takeIceCreamOrder() {
+
+    }
+
 
     @Override
     public void cancelOrder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cancelOrder'");
+       System.out.println("Ya has confirmado tu orden y esta ya no puede ser cancelada.")
     }
 
     @Override
     public void confirmOrder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'confirmOrder'");
+       System.out.println("Tu orden ya ha sido confirmada y no tienes que hacerlo de nuevo.")
     }
 
     @Override
     public void deliverOrder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deliverOrder'");
+       System.out.println("Tu orden aún no ha sido preparada. Por favor, espera.")
+
     }
     
 }
