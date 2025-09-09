@@ -1,24 +1,23 @@
 package myp.practica2.robot;
 
 /**
- * Clase que representa el estado del robot cuando se encuentra en su estado orden confirmada.
+ * Clase que representa el estado del robot cuando se encuentra en su estado confirmación de orden.
  */
 public class OrderConfirmedState implements RobotState {
 
-    /** El robot al que se asignaran los diferentes estados. */
+	/** El robot que se encuentra en su estado confirmación de orden. */
 	private Robot cesarinRobot;
 
     /**
-     * Crea un estado orden confirmada para el robot.
-     * @param cesarinRobot el robot para el que se creara un estado orden confirmada.
-     */
+	 * Crea el estado que maneja a un robot en estado confirmación de orden.
+	 * @param cesarinRobot el robot a manejar en estado confirmación de orden.
+	 */
     public OrderConfirmedState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
     }
 
 	/**
-	 * Llama al robot cuando este se encuentra en su estado orden confirmada.
-     * 
+	 * Intenta llamar al robot, pero este está en el estado confirmación de orden.
 	 */
 	@Override
 	public void call() {
@@ -27,31 +26,23 @@ public class OrderConfirmedState implements RobotState {
 
 
     /**
-	 * Toma una orden de pizza cuando el robot se encuentra en su estado orden confirmada.
-	 */
+    * Intenta tomar la orden de pizza de un cliente, pero el robot está en el estado confirmación de orden.
+    */
     @Override
     public void takePizzaOrder() {
         System.out.println("Tu orden ya ha sido registrada.");
     }
 
     /**
-	 * Toma una orden de helado cuando el robot se encuentra en su estado orden confirmada.
-	 */
+    * Intenta tomar la orden de helado de un cliente, pero el robot está en el estado confirmación de orden.
+    */
     @Override
     public void takeIceCreamOrder() {
         System.out.println("Tu orden ya ha sido registrada.");
     }
 
     /**
-	 * Cancela la orden cuando el robot se encuentra en su estado orden confirmada.
-	 */
-    @Override
-    public void cancelOrder() {
-       System.out.println("Ya has confirmado tu orden y esta ya no puede ser cancelada.");
-    }
-
-    /**
-	 * Confirma la orden cuando el robot se encuentra en su estado orden confirmada.
+	 * Intenta confirmar la orden de un cliente, pero el robot está en el estado confirmación de orden.
 	 */
     @Override
     public void confirmOrder() {
@@ -59,7 +50,16 @@ public class OrderConfirmedState implements RobotState {
     }
 
     /**
-	 * Prepara la orden cuando el robot se encuentra en su estado orden confirmada.
+	 * Intenta cancelar la orden de un cliente, pero el robot está en el estado confirmación de orden.
+	 */
+    @Override
+    public void cancelOrder() {
+       System.out.println("Ya has confirmado tu orden y esta ya no puede ser cancelada.");
+    }
+
+    /**
+	 * Prepara la orden de un cliente.
+     * El robot pasa del estado "confirmación de orden" al estado "preparación de orden".
 	 */
     @Override
     public void prepareOrder() {
@@ -68,11 +68,10 @@ public class OrderConfirmedState implements RobotState {
     }
 
     /**
-	 * Entrega la orden cuando el robot se encuentra en su estadi orden confirmada.
+	 * Intenta entregar la orden de un cliente, pero el robot está en el estado confirmación de orden.
 	 */
     @Override
     public void deliverOrder() {
        System.out.println("Tu orden aún no ha sido preparada. Por favor, espera.");
-
     }
 }
