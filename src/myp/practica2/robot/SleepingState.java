@@ -1,5 +1,8 @@
 package myp.practica2.robot;
 
+/**
+ * Clase que representa el estado del robot cuando se encuentra en su estado dormido.
+ */
 public class SleepingState implements RobotState {
     Robot cesarinRobot;
 
@@ -12,37 +15,38 @@ public class SleepingState implements RobotState {
 	 */
 	@Override
 	public void call() {
-
+        System.out.println("El robot ha sido llamado para atender al cliente.");
+        cesarinRobot.setState(cesarinRobot.getTakingOrderState());
 	}
 
-	@Override
-    public void prepareOrder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'prepareOrder'");
+    @Override
+    public void takePizzaOrder() {
+        System.out.println("El robot no puede tomar una orden de pizza si está dormido.");
     }
 
     @Override
-    public void takeOrder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'takeOrder'");
-    }
-
-    @Override
-    public void cancelOrder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cancelOrder'");
+    public void takeIceCreamOrder() {
+        System.out.println("El robot puede tomar una orden de helado si está dormido.");
     }
 
     @Override
     public void confirmOrder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'confirmOrder'");
+        System.out.println("El robot no puede confirmar una orden si está dormido.");
+    }
+
+    @Override
+    public void cancelOrder() {
+        System.out.println("El robot no puede cancelar una orden si está dormido.");
+    }
+
+	@Override
+    public void prepareOrder() {
+        System.out.println("El robot no puede preparar una orden si está dormido.");
     }
 
     @Override
     public void deliverOrder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deliverOrder'");
+        System.out.println("El robot no puede entregar una orden si está dormido.");
+
     }
-    
 }
