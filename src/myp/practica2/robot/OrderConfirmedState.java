@@ -20,34 +20,34 @@ public class OrderConfirmedState implements RobotState {
 
     @Override
     public void prepareOrder() {
-        System.out.println("Procediendo a preparar tu orden.")
+        System.out.println("Procediendo a preparar tu orden.");
         cesarinRobot.setState(cesarinRobot.getPreparingState());    
     }
 
     @Override
     public void takePizzaOrder() {
-
+        System.out.println("Tu orden ya ha sido registrada.")
     }
 
     @Override
     public void takeIceCreamOrder() {
-
+        System.out.println("Tu orden ya ha sido registrada.")
     }
 
 
     @Override
     public void cancelOrder() {
-       System.out.println("Ya has confirmado tu orden y esta ya no puede ser cancelada.")
+       System.out.println("Ya has confirmado tu orden y esta ya no puede ser cancelada.");
     }
 
     @Override
     public void confirmOrder() {
-       System.out.println("Tu orden ya ha sido confirmada y no tienes que hacerlo de nuevo.")
+       System.out.println("Tu orden ya ha sido confirmada y no tienes que hacerlo de nuevo.");
     }
 
     @Override
     public void deliverOrder() {
-       System.out.println("Tu orden aún no ha sido preparada. Por favor, espera.")
+       System.out.println("Tu orden aún no ha sido preparada. Por favor, espera.");
 
     }
     

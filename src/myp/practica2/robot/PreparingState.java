@@ -37,7 +37,7 @@ public class PreparingState implements RobotState {
 	 */
     @Override
     public void takePizzaOrder() {
-
+        System.out.println("Tu orden ya ha sido registrada y esta en espera de ser preparada.");
     }
 
     /**
@@ -45,6 +45,7 @@ public class PreparingState implements RobotState {
 	 */
     @Override
     public void takeIceCreamOrder() {
+        System.out.println("Tu orden ya ha sido registrada y esta en espera de ser preparada.");
 
     }
 

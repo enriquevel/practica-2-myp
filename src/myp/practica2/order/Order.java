@@ -62,6 +62,6 @@ public class Order {
 		if (isEmpty())
 			throw new IllegalStateException("The order is empty.");
 
-		return new Ticket(this.pizza, this.iceCream);
+		return new Ticket(this);
 	}
 }
