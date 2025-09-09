@@ -16,7 +16,7 @@ public class ReadyForDeliveryState implements RobotState {
 	 */
 	@Override
 	public void call() {
-		System.out.println("Una orden está por ser entregada y el robot aún no puede ser llamado.")
+		System.out.println("Una orden está por ser entregada y el robot aún no puede ser llamado.");
 
 	}
 
@@ -25,7 +25,7 @@ public class ReadyForDeliveryState implements RobotState {
 	 */
 	@Override
 	public void prepareOrder() {
-		System.out.println("La orden ya fue preparada y está en espera de ser entregada.")
+		System.out.println("La orden ya fue preparada y está en espera de ser entregada.");
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class ReadyForDeliveryState implements RobotState {
 	 */
 	@Override
     public void takePizzaOrder() {
-
+		System.out.println("No se pueden registrar pedidos durante el periodo de de entrega.");
     }
 
 	/**
@@ -41,6 +41,7 @@ public class ReadyForDeliveryState implements RobotState {
 	 */
     @Override
     public void takeIceCreamOrder() {
+		System.out.println("No se pueden registrar pedidos durante el periodo de de entrega.");
     }
 
 
@@ -65,7 +66,12 @@ public class ReadyForDeliveryState implements RobotState {
 	 */
 	@Override
 	public void deliverOrder() {
-		System.out.println("Entregando orden junto con tu ticket.");
+		System.out.println("-------- Entregando orden junto con tu ticket. -------- ");
+		Ticket ticket = getCurrentOrder().generateTicket(); //Generando ticket.
+		setCurrentOrder(new Order());   					//Borrando la orden actual
+
+		System.out.println(ticket.toString());
+		System.out.println("-------- Orden entregada. Tenga un buen dia :) --------");
 		cesarinRobot.setState(cesarinRobot.getSleepingState());
 	}
 }
