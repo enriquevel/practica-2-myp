@@ -7,31 +7,42 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Clase que representa el estado del robot cuando se encuentra en su estado tomando orden.
+ * Clase que representa el estado del robot cuando se encuentra en su estado de tomar orden.
  */
 public class TakingOrderState implements RobotState {
 
+	/** */
     private Robot cesarinRobot;
 
 	private final Scanner scanner = new Scanner(System.in);
 
+	/**
+	 * 
+	 * @param cesarinRobot 
+	 */
     public TakingOrderState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
     }
 
 	/**
-	 *
+	 * Lllama al robot cuando este se encuentra en su estado tomando orden.
 	 */
 	@Override
 	public void call() {
         System.out.println("El robot solo puede ser llamado por un cliente a la vez.");
 	}
 
+	/**
+	 * Prepara la orden cuando el robot se encuentra en su estado tomando orden.
+	 */
     @Override
     public void prepareOrder() {
         System.out.println("Se necesita primero confirmar la orden antes de prepararla.");
     }
 
+	/**
+	 * Toma la orden de pizza del cliente.
+	 */
     @Override
     public void takePizzaOrder() {
 		StringBuilder sb = new StringBuilder();
@@ -62,6 +73,12 @@ public class TakingOrderState implements RobotState {
 		}
     }
 
+	/**
+	 * Metodo auxuliar que crea una pizza con el tipo de masa especificado por el cliente.
+	 * @param choice el tipo de pizza que el cliente escogio.
+	 * @param dough el tipo de masa que el cliente escogio.
+	 * @return el tipo de pizza que el cliente ha escogido.
+	 */
 	private Pizza createPizza(int choice, Dough dough) {
 		return switch (choice) {
 			case 1 -> new PepperoniPizza(dough);
@@ -73,6 +90,9 @@ public class TakingOrderState implements RobotState {
 		};
 	}
 
+	/**
+	 *
+	 */
     @Override
     public void takeIceCreamOrder() {
 		StringBuilder sb = new StringBuilder();
@@ -125,9 +145,13 @@ public class TakingOrderState implements RobotState {
 				System.out.println("Opción invalida.");
 			}
 		}
-
 	}
 
+	/**
+	 * Metodo auxiliar 
+	 * @param choice 
+	 * @return
+	 */
 	private IceCream getIceCream(int choice) {
 		return switch (choice) {
 			case 1 -> new StrawberryIceCream();
@@ -137,6 +161,12 @@ public class TakingOrderState implements RobotState {
 		};
 	}
 
+	/**
+	 * 
+	 * @param choice
+	 * @param icecream
+	 * @return
+	 */
 	private DecoratingIngredient getDecoratingIngredient(int choice, IceCream icecream) {
 		return switch (choice) {
 			case 1 -> new GummyWorms(icecream);
@@ -151,6 +181,9 @@ public class TakingOrderState implements RobotState {
 		};
 	}
 
+	/**
+	 * 
+	 */
     @Override
     public void cancelOrder() {
 		this.cesarinRobot.getCurrentOrder().clear();
@@ -158,6 +191,9 @@ public class TakingOrderState implements RobotState {
         this.cesarinRobot.setState(this.cesarinRobot.getSleepingState());
     }
 
+	/**
+	 * 
+	 */
     @Override
     public void confirmOrder() {
 		if (this.cesarinRobot.getCurrentOrder().isEmpty())
@@ -166,12 +202,13 @@ public class TakingOrderState implements RobotState {
 			System.out.println("La orden ha sido confirmada.");
 			this.cesarinRobot.setState(this.cesarinRobot.getOrderConfirmedState());
 		}
-
     }
 
+	/**
+	 * 
+	 */
     @Override
     public void deliverOrder() {
         System.out.println("No es posible aún entregar la orden. La orden aún no ha sido preparada.");
     }
-    
 }

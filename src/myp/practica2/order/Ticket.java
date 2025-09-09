@@ -1,10 +1,14 @@
 package myp.practica2.order;
 
-import java.util.Scanner;
+import java.util.NoSuchElementException;
+import myp.practica2.icecream.IceCream;
+import myp.practica2.pizza.Pizza;
+
 /**
  * Clase para tickets.
  */
 public class Ticket {
+    
     /*Representacion en cadena del ticket */
     private String receipt;
     
@@ -39,17 +43,13 @@ public class Ticket {
         
         if (pizza != null){
             sb.append(pizza.getDescription());
-            sb.append("-: "+ pizza.getPrice()+ "$");
-            sb.append();
+            sb.append("-: "+ pizza.getPrice()+ "$\n");
         }
 
         if (iceCream != null){
             sb.append(iceCream.getDescription());
-            sb.append("-: "+ IceCream.getCost()+ "$");
-            sb.append();
+            sb.append("-: "+ iceCream.getCost()+ "$\n");
         }
         return sb.toString();
     }
-
-    
 }
