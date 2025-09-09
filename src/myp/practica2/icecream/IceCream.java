@@ -5,11 +5,11 @@ package myp.practica2.icecream;
  */
 public abstract class IceCream {
 
-	/** Descripción del helado.  */
+	/** Descripción del helado. */
 	String description = "Helado";
 
 	/**
-	 * Devuelve la descrpción de este helado.
+	 * Devuelve la descripción de este helado.
 	 * @return la descripción de este helado.
 	 */
 	public String getDescription() {
