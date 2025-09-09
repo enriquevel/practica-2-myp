@@ -1,7 +1,7 @@
 package myp.practica2.icecream;
 
 /**
- * Clase que representa gomitas de panda.
+ * Clase que representa gomitas de panda, que son ingredientes decoradores para los helados.
  */
 public class GummyPandas extends DecoratingIngredient {
 
@@ -16,7 +16,7 @@ public class GummyPandas extends DecoratingIngredient {
 
 	/**
 	 * Devuelve una descripción del helado con las gomitas de panda.
-	 * @return una descripción del helado con las gomitas de panda
+	 * @return una descripción del helado con las gomitas de panda.
 	 */
     @Override
     public String getDescription() {

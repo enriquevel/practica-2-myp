@@ -1,7 +1,7 @@
 package myp.practica2.icecream;
 
 /**
- * Clase que representa malvaviscos.
+ * Clase que representa malvaviscos, que son ingredientes decoradores para los helados.
  */
 public class Marshmallows extends DecoratingIngredient {
 

@@ -21,10 +21,18 @@ public abstract class DecoratingIngredient extends IceCream {
 		this.icecream = icecream;
 	}
 
+	/**
+	 * Devuelve el identificador del ingrediente decorador.
+	 * @return el identificador del ingrediente decorador.
+	 */
 	public String getId() {
 		return this.id;
 	}
 
+	/**
+	 * Devuelve el nombre del ingrediente decorador.
+	 * @return el nombre del ingrediente decorador.
+	 */
 	public String getName() {
 		return this.name;
 	}

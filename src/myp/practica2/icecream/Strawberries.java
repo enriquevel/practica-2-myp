@@ -1,7 +1,7 @@
 package myp.practica2.icecream;
 
 /**
- * Clase que representa fresitas.
+ * Clase que representa fresitas, que son ingredientes decoradores para los helados.
  */
 public class Strawberries extends DecoratingIngredient {
 
