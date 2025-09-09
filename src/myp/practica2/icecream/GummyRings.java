@@ -10,6 +10,8 @@ public class GummyRings extends DecoratingIngredient {
 	 */
 	public GummyRings(IceCream icecream) {
 		super(icecream);
+		this.id = "D03";
+		this.name = "Gomitas de aro";
 	}
 
 	/**

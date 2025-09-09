@@ -10,6 +10,8 @@ public class Strawberries extends DecoratingIngredient {
 	 */
 	public Strawberries(IceCream icecream) {
 		super(icecream);
+		this.id = "D06";
+		this.name = "Fresitas";
 	}
 
 	/**
@@ -18,7 +20,7 @@ public class Strawberries extends DecoratingIngredient {
 	 */
 	@Override
 	public String getDescription() {
-		return this.icecream.getDescription() + " + Fresitas uwu";
+		return this.icecream.getDescription() + " + Fresitas";
 	}
 
 	/**

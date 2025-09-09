@@ -5,7 +5,7 @@ package myp.practica2.robot;
  */
 public class ReadyForDeliveryState implements RobotState {
 
-	Robot cesarinRobot;
+	private Robot cesarinRobot;
 
 	public ReadyForDeliveryState(Robot cesarinRobot) {
 		this.cesarinRobot = cesarinRobot;

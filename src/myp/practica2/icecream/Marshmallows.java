@@ -10,6 +10,8 @@ public class Marshmallows extends DecoratingIngredient {
 	 */
 	public Marshmallows(IceCream icecream) {
 		super(icecream);
+		this.id = "D05";
+		this.name = "Malvaviscos";
 	}
 
 	/**

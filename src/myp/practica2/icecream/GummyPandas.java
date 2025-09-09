@@ -10,6 +10,8 @@ public class GummyPandas extends DecoratingIngredient {
 	 */
 	public GummyPandas(IceCream icecream) {
 		super(icecream);
+		this.id = "D02";
+		this.name = "Gomitas de panda";
 	}
 
 	/**

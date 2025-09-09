@@ -4,7 +4,7 @@ package myp.practica2.robot;
  * Clase que representa el estado del robot cuando se encuentra en su estado orden confirmada.
  */
 public class OrderConfirmedState implements RobotState {
-     Robot cesarinRobot;
+	private Robot cesarinRobot;
 
     public OrderConfirmedState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;

@@ -10,6 +10,8 @@ public class GummyWorms extends DecoratingIngredient {
 	 */
 	public GummyWorms(IceCream icecream) {
 		super(icecream);
+		this.id = "D01";
+		this.name = "Gomitas de gusano";
 	}
 
 	/**

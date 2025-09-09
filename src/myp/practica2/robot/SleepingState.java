@@ -1,10 +1,12 @@
 package myp.practica2.robot;
 
+import myp.practica2.order.Order;
+
 /**
  * Clase que representa el estado del robot cuando se encuentra en su estado dormido.
  */
 public class SleepingState implements RobotState {
-    Robot cesarinRobot;
+    private Robot cesarinRobot;
 
     public SleepingState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
@@ -15,8 +17,9 @@ public class SleepingState implements RobotState {
 	 */
 	@Override
 	public void call() {
-        System.out.println("El robot ha sido llamado para atender al cliente.");
-        cesarinRobot.setState(cesarinRobot.getTakingOrderState());
+        System.out.println("El robot ha sido llamado para atender al cliente. Listo para tomar la orden.");
+		this.cesarinRobot.setCurrentOrder(new Order());
+        this.cesarinRobot.setState(this.cesarinRobot.getTakingOrderState());
 	}
 
     @Override
@@ -47,6 +50,5 @@ public class SleepingState implements RobotState {
     @Override
     public void deliverOrder() {
         System.out.println("El robot no puede entregar una orden si está dormido.");
-
     }
 }

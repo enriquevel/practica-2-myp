@@ -1,11 +1,16 @@
 package myp.practica2.robot;
 
+import myp.practica2.order.Order;
+
 /**
  *  
  */
 public class Robot {
+
 	/** El estado actual del robot. */
 	private RobotState state;
+
+	private Order currentOrder;
 
     private final RobotState sleepingState = new SleepingState(this);
 	private final RobotState takingOrderState = new TakingOrderState(this);
@@ -18,6 +23,7 @@ public class Robot {
 	 */
     public Robot() {
 		this.state = sleepingState;
+		this.currentOrder = null;
     }
 
 	/**
@@ -115,5 +121,13 @@ public class Robot {
 	 */
 	public void deliverOrder() {
 		this.state.deliverOrder();
+	}
+
+	public Order getCurrentOrder() {
+		return this.currentOrder;
+	}
+
+	public void setCurrentOrder(Order order) {
+		this.currentOrder = order;
 	}
 }
