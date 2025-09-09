@@ -35,40 +35,40 @@ public class Robot {
 	}
 
 	/**
-	 * 
-	 * @return 
+	 * Devuelve el estado dormido del robot.
+	 * @return el estado dormido de este robot.
 	 */
     public RobotState getSleepingState() {
         return this.sleepingState;
     }
 
 	/**
-	 * 
-	 * @return 
+	 * Devuelve el estado en el que el robot toma una orden.
+	 * @return el estado tomando orden de este robot.
 	 */
     public RobotState getTakingOrderState() {
         return this.takingOrderState;
     }
 
 	/**
-	 * 
-	 * @return 
+	 * Devuelve el estado de confirmacion de orden del robot.
+	 * @return el estado de confirmacion de orden de este robot.
 	 */
 	public RobotState getOrderConfirmedState() {
 		return this.orderConfirmedState;
 	}
 
 	/**
-	 * 
-	 * @return 
+	 * Devuelve el estado de preparacion de orden del robot.
+	 * @return el estado de preparacion de este robot.
 	 */
     public RobotState getPreparingState() {
         return this.preparingState;
     }
 
 	/**
-	 * 
-	 * @return 
+	 * Devuelve el estado de entrega de orden del robot.
+	 * @return el estado de entrega de orden de este robot.
 	 */
     public RobotState getReadyForDeliveryState() {
         return this.readyForDeliveryState;
@@ -123,10 +123,18 @@ public class Robot {
 		this.state.deliverOrder();
 	}
 
+	/**
+	 * Devuelve la orden actual que el robot atendera.
+	 * @return la orden actual.
+	 */
 	public Order getCurrentOrder() {
 		return this.currentOrder;
 	}
 
+	/**
+	 * Establece la orden actual que el robot atendera.
+	 * @param order la orden del cliente.
+	 */
 	public void setCurrentOrder(Order order) {
 		this.currentOrder = order;
 	}

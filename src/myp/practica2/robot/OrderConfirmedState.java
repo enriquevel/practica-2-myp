@@ -15,6 +15,7 @@ public class OrderConfirmedState implements RobotState {
 	 */
 	@Override
 	public void call() {
+        System.out.println("No puedes llamar al robot. Este solo atiende una orden a la vez");
 
 	}
 
@@ -26,12 +27,12 @@ public class OrderConfirmedState implements RobotState {
 
     @Override
     public void takePizzaOrder() {
-        System.out.println("Tu orden ya ha sido registrada.")
+        System.out.println("Tu orden ya ha sido registrada.");
     }
 
     @Override
     public void takeIceCreamOrder() {
-        System.out.println("Tu orden ya ha sido registrada.")
+        System.out.println("Tu orden ya ha sido registrada.");
     }
 
 

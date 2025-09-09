@@ -1,5 +1,7 @@
 package myp.practica2.robot;
 
+import myp.practica2.order.*;
+
 /**
  * Clase que representa el estado del robot cuando se encuentra en su estado entregar orden.
  */
@@ -67,8 +69,9 @@ public class ReadyForDeliveryState implements RobotState {
 	@Override
 	public void deliverOrder() {
 		System.out.println("-------- Entregando orden junto con tu ticket. -------- ");
-		Ticket ticket = getCurrentOrder().generateTicket(); //Generando ticket.
-		setCurrentOrder(new Order());   					//Borrando la orden actual
+		Order order = this.cesarinRobot.getCurrentOrder();
+		Ticket ticket = order.generateTicket(); //Generando ticket.
+		this.cesarinRobot.setCurrentOrder(new Order());   					//Borrando la orden actual
 
 		System.out.println(ticket.toString());
 		System.out.println("-------- Orden entregada. Tenga un buen dia :) --------");
