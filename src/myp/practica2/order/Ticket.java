@@ -1,14 +1,14 @@
 package myp.practica2.order;
 
 import java.util.NoSuchElementException;
-import java.util.Scanner;
-
 import myp.practica2.icecream.IceCream;
 import myp.practica2.pizza.Pizza;
+
 /**
  * Clase para tickets.
  */
 public class Ticket {
+    
     /*Representacion en cadena del ticket */
     private String receipt;
     

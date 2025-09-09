@@ -1,13 +1,18 @@
 package myp.practica2.robot;
 
+import myp.practica2.order.*;
+import myp.practica2.pizza.Pizza;
+
 /**
  * Clase que representa el estado del robot cuando se encuentra en su estado preparando orden.
  */
 public class PreparingState implements RobotState {
-    Robot cesarinRobot;
+
+    /** */
+    private Robot cesarinRobot;
 
     /**
-	 *
+	 * Asigna al robot el estado 
 	 */
     public PreparingState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
@@ -26,10 +31,23 @@ public class PreparingState implements RobotState {
 	 */
     @Override
     public void prepareOrder() {
-        System.out.println("Preparando tu orden..."); //si es una pizza, deberia de llamarse a preparePizza()
+        Order order = this.cesarinRobot.getCurrentOrder();
+
+        if(order.hasPizza()) {
+            System.out.println("Preparando tu pizza...");
+            Pizza pizza = order.getPizza();
+            pizza.preparePizza();
+        }
+
+        if(order.hasIceCream()) {
+            System.out.println("Preparando tu helado...");
+        }
+
+        //si es una pizza, deberia de llamarse a preparePizza()
         // o en su defecto preparar el helado. despues pasar a ReadyForDeliveryState y esperar a recibir orden de entregar.
         this.cesarinRobot.setState(this.cesarinRobot.getReadyForDeliveryState());
     }
+
 
     /**
 	 *
@@ -65,6 +83,9 @@ public class PreparingState implements RobotState {
 
     }
 
+    /**
+	 *
+	 */
     @Override
     public void deliverOrder() {
         System.out.println("Tu orden está siendo preparada y aún no es psoible entregarla.");

@@ -10,8 +10,9 @@ public class Robot {
 	/** El estado actual del robot. */
 	private RobotState state;
 
+	/** La orden actual que el robot preparara. */
 	private Order currentOrder;
-
+	
     private final RobotState sleepingState = new SleepingState(this);
 	private final RobotState takingOrderState = new TakingOrderState(this);
     private final RobotState orderConfirmedState = new OrderConfirmedState(this);

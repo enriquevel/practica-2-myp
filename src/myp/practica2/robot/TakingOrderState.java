@@ -11,10 +11,15 @@ import java.util.Scanner;
  */
 public class TakingOrderState implements RobotState {
 
+	/** */
     private Robot cesarinRobot;
 
 	private final Scanner scanner = new Scanner(System.in);
 
+	/**
+	 * 
+	 * @param cesarinRobot 
+	 */
     public TakingOrderState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
     }
@@ -69,7 +74,10 @@ public class TakingOrderState implements RobotState {
     }
 
 	/**
-	 *
+	 * Metodo auxuliar que crea una pizza con el tipo de masa especificado por el cliente.
+	 * @param choice el tipo de pizza que el cliente escogio.
+	 * @param dough el tipo de masa que el cliente escogio.
+	 * @return el tipo de pizza que el cliente ha escogido.
 	 */
 	private Pizza createPizza(int choice, Dough dough) {
 		return switch (choice) {
@@ -137,11 +145,10 @@ public class TakingOrderState implements RobotState {
 				System.out.println("Opción invalida.");
 			}
 		}
-
 	}
 
 	/**
-	 * 
+	 * Metodo auxiliar 
 	 * @param choice 
 	 * @return
 	 */
@@ -195,7 +202,6 @@ public class TakingOrderState implements RobotState {
 			System.out.println("La orden ha sido confirmada.");
 			this.cesarinRobot.setState(this.cesarinRobot.getOrderConfirmedState());
 		}
-
     }
 
 	/**
