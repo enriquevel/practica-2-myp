@@ -14,6 +14,12 @@ public enum Dough {
 	/** La masa americana. */
 	AMERICAN;
 
+	/**
+	 * Devuelve el tipo de masa correspondiente al número recibido.
+	 * @param choice el número del tipo de masa que se desea.
+	 * @return el tipo de masa correspondiente al número recibido.
+	 * @throws IllegalArgumentException si el número es menor a 1 o mayor a 3.
+	 */
 	public static Dough get(int choice) {
 		return switch (choice) {
 			case 1 -> NAPOLITAN;

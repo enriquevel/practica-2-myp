@@ -8,18 +8,19 @@ import myp.practica2.pizza.Pizza;
  */
 public class PreparingState implements RobotState {
 
-    /** */
+    /** El robot al que se asignaran los diferentes estados. */
     private Robot cesarinRobot;
 
     /**
-	 * Asigna al robot el estado 
+	 * Crea un estado preparando orden para el robot. 
+     * @param cesarinRobot el robot para el que se creara un estado preparando orden.
 	 */
     public PreparingState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
     }
 
 	/**
-	 *
+	 * LLama al robot cuando este se encuentra en su estado preparando orden.
 	 */
 	@Override
 	public void call() {
@@ -27,7 +28,7 @@ public class PreparingState implements RobotState {
 	}
 
     /**
-	 *
+	 * Prepara la orden del cliente cuando el robot se encuentra en su estado preparando orden.
 	 */
     @Override
     public void prepareOrder() {
@@ -39,18 +40,15 @@ public class PreparingState implements RobotState {
             pizza.preparePizza();
         }
 
-        if(order.hasIceCream()) {
+        if(order.hasIceCream()) 
             System.out.println("Preparando tu helado...");
-        }
 
-        //si es una pizza, deberia de llamarse a preparePizza()
-        // o en su defecto preparar el helado. despues pasar a ReadyForDeliveryState y esperar a recibir orden de entregar.
         this.cesarinRobot.setState(this.cesarinRobot.getReadyForDeliveryState());
     }
 
 
     /**
-	 *
+	 * Toma la orden de pizza del cliente cuando este se encuentra en su estado preparando orden.
 	 */
     @Override
     public void takePizzaOrder() {
@@ -58,7 +56,7 @@ public class PreparingState implements RobotState {
     }
 
     /**
-	 *
+	 * Toma la orden de helado del cliente cuando este se encuentra en su estado preparando orden.
 	 */
     @Override
     public void takeIceCreamOrder() {
@@ -67,7 +65,7 @@ public class PreparingState implements RobotState {
     }
 
     /**
-	 *
+	 * Cancela la orden del cliente cuando el robot se encuentra en su estado preparando orden.
 	 */
     @Override
     public void cancelOrder() {
@@ -75,7 +73,7 @@ public class PreparingState implements RobotState {
     }
 
     /**
-	 *
+	 * Confirma la orden del cliente cuando el robot se encuentra en su estado preparando orden.
 	 */
     @Override
     public void confirmOrder() {
@@ -84,7 +82,7 @@ public class PreparingState implements RobotState {
     }
 
     /**
-	 *
+	 * Entrega la orden del cliente cuando el robot se encuentra en su estado preparando orden.
 	 */
     @Override
     public void deliverOrder() {

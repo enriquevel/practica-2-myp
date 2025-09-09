@@ -7,18 +7,19 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Clase que representa el estado del robot cuando se encuentra en su estado de tomar orden.
+ * Clase que representa el estado del robot cuando se encuentra en su estado tomando orden.
  */
 public class TakingOrderState implements RobotState {
 
-	/** */
+	/** El robot al que se le asignaran los diferentes estados.  */
     private Robot cesarinRobot;
+
 
 	private final Scanner scanner = new Scanner(System.in);
 
 	/**
-	 * 
-	 * @param cesarinRobot 
+	 * Crea un estado tomando orden para el robot.
+	 * @param cesarinRobot el robot para el que se creara un estado tomando orden.
 	 */
     public TakingOrderState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
@@ -41,7 +42,7 @@ public class TakingOrderState implements RobotState {
     }
 
 	/**
-	 * Toma la orden de pizza del cliente.
+	 * Toma una orden de pizza del cliente cuando el robot se encuentra en su estado tomando orden.
 	 */
     @Override
     public void takePizzaOrder() {
@@ -91,7 +92,7 @@ public class TakingOrderState implements RobotState {
 	}
 
 	/**
-	 *
+	 * Toma una orden de helado del cliente cuando el robot se encuentra en su estado tomando orden.
 	 */
     @Override
     public void takeIceCreamOrder() {
@@ -148,9 +149,9 @@ public class TakingOrderState implements RobotState {
 	}
 
 	/**
-	 * Metodo auxiliar 
-	 * @param choice 
-	 * @return
+	 * Metodo auxiliar que devuelve un helado del tipo espeficicado por el cliente.
+	 * @param choice el tipo de helado especificado por el cliente.
+	 * @return un helado del tipo especificado por el cliente
 	 */
 	private IceCream getIceCream(int choice) {
 		return switch (choice) {
@@ -162,10 +163,10 @@ public class TakingOrderState implements RobotState {
 	}
 
 	/**
-	 * 
-	 * @param choice
-	 * @param icecream
-	 * @return
+	 * Metodo auxiliar que devuelve un ingrediente decorador para el helado del cliente.
+	 * @param choice el ingrediente decorador especificado por el cliente.
+	 * @param icecream el helado del cliente.
+	 * @return un ingrediente decorador para el helado del cliente.
 	 */
 	private DecoratingIngredient getDecoratingIngredient(int choice, IceCream icecream) {
 		return switch (choice) {
@@ -182,7 +183,7 @@ public class TakingOrderState implements RobotState {
 	}
 
 	/**
-	 * 
+	 * Cancela la orden del cliente cuando el robot se encuentra en su estado tomando orden.
 	 */
     @Override
     public void cancelOrder() {
@@ -192,7 +193,7 @@ public class TakingOrderState implements RobotState {
     }
 
 	/**
-	 * 
+	 * Confirma la orden del cliente cuando el robot se encuentra
 	 */
     @Override
     public void confirmOrder() {

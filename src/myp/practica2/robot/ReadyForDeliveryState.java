@@ -3,18 +3,23 @@ package myp.practica2.robot;
 import myp.practica2.order.*;
 
 /**
- * Clase que representa el estado del robot cuando se encuentra en su estado entregar orden.
+ * Clase que representa el estado del robot cuando se encuentra en su estado listo para entregar.
  */
 public class ReadyForDeliveryState implements RobotState {
 
+	/** El robot al que se asignaran los diferentes estados.*/
 	private Robot cesarinRobot;
 
+	/**
+	 * Crea un estado listo para entregar para el robot.
+	 * @param cesarinRobot el robot para el que se creara un estado listo para entregar.
+	 */
 	public ReadyForDeliveryState(Robot cesarinRobot) {
 		this.cesarinRobot = cesarinRobot;
 	}
 
 	/**
-	 *
+	 * Llama al robot cuando este se encuentra en su estado listo para entregar.
 	 */
 	@Override
 	public void call() {
@@ -23,15 +28,7 @@ public class ReadyForDeliveryState implements RobotState {
 	}
 
 	/**
-	 *
-	 */
-	@Override
-	public void prepareOrder() {
-		System.out.println("La orden ya fue preparada y está en espera de ser entregada.");
-	}
-
-	/**
-	 *
+	 * Toma una orden de pizza cuando el robot se encuentra en su estado listo para entregar.
 	 */
 	@Override
     public void takePizzaOrder() {
@@ -39,7 +36,7 @@ public class ReadyForDeliveryState implements RobotState {
     }
 
 	/**
-	 *
+	 * Toma una orden de helado cuando el robot se encuentra en su estado listo para entregar.
 	 */
     @Override
     public void takeIceCreamOrder() {
@@ -48,7 +45,7 @@ public class ReadyForDeliveryState implements RobotState {
 
 
 	/**
-	 *
+	 * Cancela una orden cuando el robot se encuentra en su estado listo para entregar.
 	 */
 	@Override
 	public void cancelOrder() {
@@ -56,7 +53,7 @@ public class ReadyForDeliveryState implements RobotState {
 	}
 
 	/**
-	 *
+	 * Confirma una orden cuando el robot se encuentra en su estado listo para entregar.
 	 */
 	@Override
 	public void confirmOrder() {
@@ -64,7 +61,16 @@ public class ReadyForDeliveryState implements RobotState {
 	}
 
 	/**
-	 *
+	 * Prepara una orden cuando el robot se encuentra en su estado listo para entregar.
+	 */
+	@Override
+	public void prepareOrder() {
+		System.out.println("La orden ya fue preparada y está en espera de ser entregada.");
+	}
+
+	/**
+	 * Entrega una orden cuando el robot se encuentra en su estado listo para entregar.
+	 * Tambien muestra el recibo con los detalles de su compra.
 	 */
 	@Override
 	public void deliverOrder() {
@@ -75,6 +81,6 @@ public class ReadyForDeliveryState implements RobotState {
 
 		System.out.println(ticket.toString());
 		System.out.println("-------- Orden entregada. Tenga un buen dia :) --------");
-		cesarinRobot.setState(cesarinRobot.getSleepingState());
+		this.cesarinRobot.setState(this.cesarinRobot.getSleepingState());
 	}
 }

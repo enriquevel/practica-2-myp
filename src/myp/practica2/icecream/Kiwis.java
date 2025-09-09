@@ -1,7 +1,7 @@
 package myp.practica2.icecream;
 
 /**
- * Clase que representa kiwis.
+ * Clase que representa kiwis, que son ingredientes decoradores para los helados.
  */
 public class Kiwis extends DecoratingIngredient {
 

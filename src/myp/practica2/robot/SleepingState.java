@@ -6,14 +6,21 @@ import myp.practica2.order.Order;
  * Clase que representa el estado del robot cuando se encuentra en su estado dormido.
  */
 public class SleepingState implements RobotState {
+
+	/** El robot que se encuentra en su estado dormido. */
     private Robot cesarinRobot;
 
+	/**
+	 * Crea el estado que maneja a un robot en estado dormido.
+	 * @param cesarinRobot el robot a manejar en estado dormido.
+	 */
     public SleepingState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
     }
 
 	/**
-	 *
+	 * Llama al robot para atender a un cliente.
+	 * El robot pasa de estado "dormido" a estado "tomando orden".
 	 */
 	@Override
 	public void call() {
@@ -23,7 +30,7 @@ public class SleepingState implements RobotState {
 	}
 
     /**
-	 *
+	 * Intenta tomar la orden de pizza de un cliente, pero el robot está dormido.
 	 */
     @Override
     public void takePizzaOrder() {
@@ -31,7 +38,7 @@ public class SleepingState implements RobotState {
     }
 
     /**
-	 *
+	 * Intenta tomar la orden de helado de un cliente, pero el robot está dormido.
 	 */
     @Override
     public void takeIceCreamOrder() {
@@ -39,7 +46,7 @@ public class SleepingState implements RobotState {
     }
 
     /**
-	 *
+	 * Intenta confirmar la orden de un cliente, pero el robot está dormido.
 	 */
     @Override
     public void confirmOrder() {
@@ -47,7 +54,7 @@ public class SleepingState implements RobotState {
     }
 
     /**
-	 *
+	 * Intenta cancelar la orden de un cliente, pero el robot está dormido.
 	 */
     @Override
     public void cancelOrder() {
@@ -55,7 +62,7 @@ public class SleepingState implements RobotState {
     }
 
     /**
-	 *
+	 * Intenta preparar la orden de un cliente, pero el robot está dormido.
 	 */
 	@Override
     public void prepareOrder() {
@@ -63,7 +70,7 @@ public class SleepingState implements RobotState {
     }
 
     /**
-	 *
+	 * Intenta entregar la orden de un cliente, pero el robot está dormido.
 	 */
     @Override
     public void deliverOrder() {

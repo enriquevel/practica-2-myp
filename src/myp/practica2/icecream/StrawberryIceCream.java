@@ -20,5 +20,4 @@ public class StrawberryIceCream extends IceCream {
 	public double getCost() {
 		return 25.0;
 	}
-
 }

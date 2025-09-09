@@ -1,7 +1,7 @@
 package myp.practica2.icecream;
 
 /**
- * Clase que representa manguitos.
+ * Clase que representa manguitos, que son ingredientes decoradores para los helados.
  */
 public class Mangoes extends DecoratingIngredient {
 
