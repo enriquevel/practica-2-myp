@@ -1,7 +1,7 @@
 package myp.practica2.icecream;
 
 /**
- * Clase que representa gomitas de gusano.
+ * Clase que representa gomitas de gusano, que son ingredientes decoradores para los helados.
  */
 public class GummyWorms extends DecoratingIngredient {
 

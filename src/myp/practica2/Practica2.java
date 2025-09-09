@@ -19,6 +19,12 @@ public class Practica2 {
 				case 2:
 					robot.takePizzaOrder();
 					break;
+
+				case 3: // helado
+				case 4: // confirmar
+				case 5: // cancelar
+				case 6: // preparar
+					case 7: // recoger orden
 				case 0:
 					System.out.println("Vuelve pronto.");
 					System.exit(0);

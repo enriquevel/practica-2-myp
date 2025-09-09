@@ -1,7 +1,7 @@
 package myp.practica2.icecream;
 
 /**
- * Clase que representa gomitas de aro.
+ * Clase que representa gomitas de aro, que son ingredientes decoradores para los helados.
  */
 public class GummyRings extends DecoratingIngredient {
 
