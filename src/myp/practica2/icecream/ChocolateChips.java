@@ -3,7 +3,7 @@ package myp.practica2.icecream;
 /**
  * Clase que representa chispas de chocolate, que son ingredientes decoradores para los helados.
  */
-public class ChocolateChips extends DecoratingIngredient{
+public class ChocolateChips extends DecoratingIngredient {
 
 	/**
 	 * Crea una envoltura de chispas de chocolate en el helado.

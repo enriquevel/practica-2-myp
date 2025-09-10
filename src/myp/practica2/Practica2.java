@@ -52,6 +52,6 @@ public class Practica2 {
 		System.out.println("(5). Cancelar orden.");
 		System.out.println("(6). Preparar orden");
 		System.out.println("(7). Solicitar entrega de orden.");
-		System.out.println("(8). Salir.");
+		System.out.println("(0). Salir.");
 	}
 }
