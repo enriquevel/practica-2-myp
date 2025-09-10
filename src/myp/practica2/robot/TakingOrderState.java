@@ -7,25 +7,26 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Clase que representa el estado del robot cuando se encuentra en su estado de tomar orden.
+ * Clase que representa el estado del robot cuando se encuentra en su estado tomando orden.
  */
 public class TakingOrderState implements RobotState {
 
-	/** */
+	/** El robot que se encuentra en su estado tomando orden. */
     private Robot cesarinRobot;
+
 
 	private final Scanner scanner = new Scanner(System.in);
 
 	/**
-	 * 
-	 * @param cesarinRobot 
+	 * Crea el estado que maneja a un robot en estado tomando orden.
+	 * @param cesarinRobot el robot a manejar en estado orden.
 	 */
     public TakingOrderState(Robot cesarinRobot) {
         this.cesarinRobot = cesarinRobot;
     }
 
 	/**
-	 * Lllama al robot cuando este se encuentra en su estado tomando orden.
+	 * Intenta llamar al robot para tomar una orden, pero este está en su estado tomando orden.
 	 */
 	@Override
 	public void call() {
@@ -33,15 +34,7 @@ public class TakingOrderState implements RobotState {
 	}
 
 	/**
-	 * Prepara la orden cuando el robot se encuentra en su estado tomando orden.
-	 */
-    @Override
-    public void prepareOrder() {
-        System.out.println("Se necesita primero confirmar la orden antes de prepararla.");
-    }
-
-	/**
-	 * Toma la orden de pizza del cliente.
+	 * Toma una orden de pizza del cliente.
 	 */
     @Override
     public void takePizzaOrder() {
@@ -74,9 +67,9 @@ public class TakingOrderState implements RobotState {
     }
 
 	/**
-	 * Metodo auxuliar que crea una pizza con el tipo de masa especificado por el cliente.
-	 * @param choice el tipo de pizza que el cliente escogio.
-	 * @param dough el tipo de masa que el cliente escogio.
+	 * Método auxiliar que crea una pizza con el tipo de masa especificado por el cliente.
+	 * @param choice el tipo de pizza que el cliente escogió.
+	 * @param dough el tipo de masa que el cliente escogió.
 	 * @return el tipo de pizza que el cliente ha escogido.
 	 */
 	private Pizza createPizza(int choice, Dough dough) {
@@ -91,7 +84,7 @@ public class TakingOrderState implements RobotState {
 	}
 
 	/**
-	 *
+	 * Toma una orden de helado del cliente.
 	 */
     @Override
     public void takeIceCreamOrder() {
@@ -142,15 +135,15 @@ public class TakingOrderState implements RobotState {
 					System.out.println("No puedes agregar más de 3 " + decorator.getName() + " a tu helado.");
 
 			} catch (IllegalArgumentException iae) {
-				System.out.println("Opción invalida.");
+				System.out.println("Opción inválida.");
 			}
 		}
 	}
 
 	/**
-	 * Metodo auxiliar 
-	 * @param choice 
-	 * @return
+	 * Método auxiliar que devuelve un helado del tipo especificado por el cliente.
+	 * @param choice el tipo de helado especificado por el cliente.
+	 * @return un helado del tipo especificado por el cliente
 	 */
 	private IceCream getIceCream(int choice) {
 		return switch (choice) {
@@ -162,10 +155,10 @@ public class TakingOrderState implements RobotState {
 	}
 
 	/**
-	 * 
-	 * @param choice
-	 * @param icecream
-	 * @return
+	 * Método auxiliar que devuelve un ingrediente decorador para el helado del cliente.
+	 * @param choice el ingrediente decorador especificado por el cliente.
+	 * @param icecream el helado del cliente.
+	 * @return un ingrediente decorador para el helado del cliente.
 	 */
 	private DecoratingIngredient getDecoratingIngredient(int choice, IceCream icecream) {
 		return switch (choice) {
@@ -182,7 +175,16 @@ public class TakingOrderState implements RobotState {
 	}
 
 	/**
-	 * 
+	 * Intenta preparar la orden de un cliente, pero el robot está en su estado tomando orden.
+	 */
+    @Override
+    public void prepareOrder() {
+        System.out.println("Se necesita primero confirmar la orden antes de prepararla.");
+    }
+
+	/**
+	 * Cancela la orden de un cliente.
+	 * El robot pasa de estado "tomando orden" a estado "dormido".
 	 */
     @Override
     public void cancelOrder() {
@@ -192,7 +194,8 @@ public class TakingOrderState implements RobotState {
     }
 
 	/**
-	 * 
+	 * Confirma la orden de un cliente.
+	 * Si una orden ya ha sido tomada, el robot pasa de estado "tomando orden" a estado "confirmación de orden".
 	 */
     @Override
     public void confirmOrder() {
@@ -205,7 +208,7 @@ public class TakingOrderState implements RobotState {
     }
 
 	/**
-	 * 
+	 * Intenta entregar la orden de un cliente, pero el robot está en su estado tomando orden.
 	 */
     @Override
     public void deliverOrder() {
