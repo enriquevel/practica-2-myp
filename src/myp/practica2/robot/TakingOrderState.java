@@ -213,9 +213,12 @@ public class TakingOrderState implements RobotState {
 	 */
     @Override
     public void cancelOrder() {
-		this.cesarinRobot.getCurrentOrder().clear();
-        System.out.println("Cancelando orden.");
-        this.cesarinRobot.setState(this.cesarinRobot.getSleepingState());
+		if(!this.cesarinRobot.getCurrentOrder().isEmpty()) {
+			this.cesarinRobot.getCurrentOrder().clear();
+       	 	System.out.println("Cancelando orden.");
+        	this.cesarinRobot.setState(this.cesarinRobot.getSleepingState());
+		}
+		System.out.println("Debes de ordenar algo primero antes de poder cancelarlo.");
     }
 
 	/**
