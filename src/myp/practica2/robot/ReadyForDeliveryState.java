@@ -73,13 +73,21 @@ public class ReadyForDeliveryState implements RobotState {
 	 */
 	@Override
 	public void deliverOrder() {
-		System.out.println("-------- Entregando orden junto con tu ticket. -------- ");
+		System.out.println("======= Entregando orden junto con tu ticket. =======");
 		Order order = this.cesarinRobot.getCurrentOrder();
 		Ticket ticket = order.generateTicket();			//Generando ticket.
 		this.cesarinRobot.setCurrentOrder(new Order());		//Borrando la orden actual
 
 		System.out.println(ticket.toString());
-		System.out.println("-------- Orden entregada. Tenga un buen dia :) --------");
+		System.out.println("======= Orden entregada. Tenga un buen dia :) =======");
 		this.cesarinRobot.setState(this.cesarinRobot.getSleepingState());
 	}
+
+	/**
+	 * Imprime en terminal la descripcion del estado actual del robot.
+	 */
+    @Override
+	public void description(){
+        System.out.println("\n"+ "-----------ESTADO DEL ROBOT: <LISTO PARA ENTREGAR EL PEDIDO>-----------" + "\n");
+    }
 }

@@ -88,4 +88,12 @@ public class PreparingState implements RobotState {
     public void deliverOrder() {
         System.out.println("Tu orden está siendo preparada y aún no es posible entregarla.");
     }
+
+    /**
+	 * Imprime en terminal la descripcion del estado actual del robot.
+	 */
+    @Override
+	public void description(){
+        System.out.println("\n"+ "-----------ESTADO DEL ROBOT: <PREPARANDO ORDEN>-----------" + "\n");
+    }
 }
