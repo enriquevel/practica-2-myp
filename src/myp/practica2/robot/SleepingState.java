@@ -42,7 +42,7 @@ public class SleepingState implements RobotState {
 	 */
     @Override
     public void takeIceCreamOrder() {
-        System.out.println("El robot puede tomar una orden de helado si está dormido.");
+        System.out.println("El robot no puede tomar una orden de helado si está dormido.");
     }
 
     /**

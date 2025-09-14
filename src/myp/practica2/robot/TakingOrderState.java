@@ -91,10 +91,10 @@ public class TakingOrderState implements RobotState {
     @Override
     public void takeIceCreamOrder() {
 		StringBuilder sb = new StringBuilder();
-        sb.append("Seleccione el sabor de su helado:")
-				.append("(1). Fresa")
-				.append("(2). Vainilla")
-				.append("(3). Chocolate");
+        sb.append("Seleccione el sabor de su helado:\n")
+				.append("(1). Fresa\n")
+				.append("(2). Vainilla\n")
+				.append("(3). Chocolate\n");
 		System.out.println(sb.toString());
 		int flavorChoice = scanner.nextInt();
 
@@ -105,14 +105,14 @@ public class TakingOrderState implements RobotState {
 			decoratingIngredientCount.put(getDecoratingIngredient(i, null).getId(), 0);
 
 		sb.delete(0, sb.length());
-		sb.append("Seleccione su ingrediente extra: (Máximo 3 de cada uno)")
-				.append("(1). Gomitas de gusano")
-				.append("(2). Gomitas de panda")
-				.append("(3). Gomitas de aro")
-				.append("(4). Chispas de chocolate")
-				.append("(5). Malvaviscos")
-				.append("(6). Fresitas")
-				.append("(7). Manguitos")
+		sb.append("Seleccione su ingrediente extra: (Máximo 3 de cada uno)\n")
+				.append("(1). Gomitas de gusano\n")
+				.append("(2). Gomitas de panda\n")
+				.append("(3). Gomitas de aro\n")
+				.append("(4). Chispas de chocolate\n")
+				.append("(5). Malvaviscos\n")
+				.append("(6). Fresitas\n")
+				.append("(7). Manguitos\n")
 				.append("(8). Kiwis");
 
 		while (true) {
@@ -192,9 +192,12 @@ public class TakingOrderState implements RobotState {
 	 */
     @Override
     public void cancelOrder() {
-		this.cesarinRobot.getCurrentOrder().clear();
-        System.out.println("Cancelando orden.");
-        this.cesarinRobot.setState(this.cesarinRobot.getSleepingState());
+		if(!this.cesarinRobot.getCurrentOrder().isEmpty()){
+			this.cesarinRobot.getCurrentOrder().clear();
+        	System.out.println("Cancelando orden.");
+        	this.cesarinRobot.setState(this.cesarinRobot.getSleepingState());
+		}
+		System.out.println("Necesitas ordenar algo primero antes de poder cancelar.");
     }
 
 	/**
