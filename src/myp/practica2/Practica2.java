@@ -4,12 +4,18 @@ import myp.practica2.robot.Robot;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
+/**
+ * Clase principal que crea una simulacion de la pizzeria "El Pequeño Cesarín".
+ * Crea al robot que trabaja en esta pizzeria.
+ */
 public class Practica2 {
 	public static void main(String[] args) {
 		Scanner scanner =  new Scanner(System.in);
 
 		Robot robot = new Robot();
 
+		System.out.println("Bienvenid@ a la pizzeria \"El Pequeño Cesarín\" !");
+		System.out.println("Te atiende el robot Cesarin, disfruta de nuestras deliciosas opciones de pizza/helado :).\n");
 		while (true) {
 			try {
 				printOptions();

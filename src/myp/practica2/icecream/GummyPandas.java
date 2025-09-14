@@ -20,7 +20,7 @@ public class GummyPandas extends DecoratingIngredient {
 	 */
     @Override
     public String getDescription() {
-		return this.icecream.getDescription() + "+ Gomitas de panda";
+		return this.icecream.getDescription() + " + Gomitas de panda";
     }
 
    	/**

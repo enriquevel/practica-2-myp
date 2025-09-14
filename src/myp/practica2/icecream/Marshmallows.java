@@ -20,7 +20,7 @@ public class Marshmallows extends DecoratingIngredient {
 	 */
 	@Override
 	public String getDescription() {
-		return this.icecream.getDescription() + "+ Malvaviscos";
+		return this.icecream.getDescription() + " + Malvaviscos";
 	}
 
 	/**
