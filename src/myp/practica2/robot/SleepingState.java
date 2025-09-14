@@ -34,7 +34,7 @@ public class SleepingState implements RobotState {
 	 */
     @Override
     public void takePizzaOrder() {
-        System.out.println("El robot no puede tomar una orden de pizza si está dormido.");
+        System.out.println("El robot no puede tomar una orden de pizza si está dormido.\n");
     }
 
     /**
@@ -42,7 +42,7 @@ public class SleepingState implements RobotState {
 	 */
     @Override
     public void takeIceCreamOrder() {
-        System.out.println("El robot no puede tomar una orden de helado si está dormido.");
+        System.out.println("El robot no puede tomar una orden de helado si está dormido.\n");
     }
 
     /**
@@ -50,7 +50,7 @@ public class SleepingState implements RobotState {
 	 */
     @Override
     public void confirmOrder() {
-        System.out.println("El robot no puede confirmar una orden si está dormido.");
+        System.out.println("El robot no puede confirmar una orden si está dormido.\n");
     }
 
     /**
@@ -58,7 +58,7 @@ public class SleepingState implements RobotState {
 	 */
     @Override
     public void cancelOrder() {
-        System.out.println("El robot no puede cancelar una orden si está dormido.");
+        System.out.println("El robot no puede cancelar una orden si está dormido.\n");
     }
 
     /**
@@ -66,7 +66,7 @@ public class SleepingState implements RobotState {
 	 */
 	@Override
     public void prepareOrder() {
-        System.out.println("El robot no puede preparar una orden si está dormido.");
+        System.out.println("El robot no puede preparar una orden si está dormido.\n");
     }
 
     /**
@@ -74,7 +74,7 @@ public class SleepingState implements RobotState {
 	 */
     @Override
     public void deliverOrder() {
-        System.out.println("El robot no puede entregar una orden si está dormido.");
+        System.out.println("El robot no puede entregar una orden si está dormido.\n");
     }
 
     

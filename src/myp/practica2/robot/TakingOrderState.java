@@ -38,6 +38,10 @@ public class TakingOrderState implements RobotState {
 	 */
     @Override
     public void takePizzaOrder() {
+		if (this.cesarinRobot.getCurrentOrder().hasPizza()) {
+			System.out.println("Ya has añadido una pizza a tu orden. Solo se permite una por orden.");
+			return;
+		}
 		StringBuilder sb = new StringBuilder();
 		sb.append("Seleccione una pizza:\n")
 				.append("(1). Pizza de pepperoni\n")
@@ -90,6 +94,10 @@ public class TakingOrderState implements RobotState {
 	 */
     @Override
     public void takeIceCreamOrder() {
+		if (this.cesarinRobot.getCurrentOrder().hasIceCream()) {
+			System.out.println("Ya has añadido un helado a tu orden. Solo se permite uno por orden.");
+			return;
+		}
 		StringBuilder sb = new StringBuilder();
         sb.append("Seleccione el sabor de su helado:\n")
 				.append("(1). Fresa\n")
