@@ -9,7 +9,7 @@ public class VanillaIceCream extends IceCream {
 	 * Construye un helado de vainilla y provee una descripción de este.
 	 */
 	public VanillaIceCream() {
-		this.description = "Helado de vainilla.";
+		this.description = "Helado de vainilla";
 	}
 
 	/**

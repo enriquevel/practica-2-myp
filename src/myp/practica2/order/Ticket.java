@@ -5,11 +5,11 @@ import myp.practica2.icecream.IceCream;
 import myp.practica2.pizza.Pizza;
 
 /**
- * Clase para tickets.
+ * Clase para representar tickets de compra de una orden.
  */
 public class Ticket {
     
-    /*Representacion en cadena del ticket */
+    /* Representacion en cadena del ticket */
     private String receipt;
     
     /**
@@ -42,13 +42,11 @@ public class Ticket {
         IceCream iceCream = order.getIceCream();
         
         if (pizza != null){
-            sb.append(pizza.getDescription());
-            sb.append("-: "+ pizza.getPrice()+ "$\n");
+            sb.append(pizza.getDescription()).append(" - $").append(pizza.getPrice()).append("\n");
         }
 
         if (iceCream != null){
-            sb.append(iceCream.getDescription());
-            sb.append("-: "+ iceCream.getCost()+ "$\n");
+            sb.append(iceCream.getDescription()).append(" - $").append(iceCream.getCost()).append("\n");
         }
         return sb.toString();
     }

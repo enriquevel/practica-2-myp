@@ -9,7 +9,7 @@ public class StrawberryIceCream extends IceCream {
 	 * Construye un helado de fresa y provee una descripción de este.
 	 */
 	public StrawberryIceCream() {
-		this.description = "Helado de fresa.";
+		this.description = "Helado de fresa";
 	}
 
 	/**

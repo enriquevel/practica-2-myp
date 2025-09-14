@@ -150,4 +150,11 @@ public class Robot {
 	public void setCurrentOrder(Order order) {
 		this.currentOrder = order;
 	}
+
+	/**
+	 * Imprime el estado actual del robot.
+	 */
+	public void currentState() {
+		this.state.description();
+	}
 }

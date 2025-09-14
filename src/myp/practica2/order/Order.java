@@ -41,7 +41,7 @@ public class Order {
 			throw new NullPointerException("The specified pizza cannot be null.");
 
 		if (this.pizza != null)
-			throw new IllegalStateException("Only a single pizza is allowed per order.");
+			throw new IllegalStateException("Solo puedes ordenar una pizza por orden.");
 
 		this.pizza = pizza;
 	}
@@ -73,7 +73,7 @@ public class Order {
 			throw new NullPointerException("The specified ice cream cannot be null.");
 
 		if (this.iceCream != null)
-			throw  new IllegalStateException("Only a single ice cream is allowed per order.");
+			throw  new IllegalStateException("Solo puedes ordenar un helado por orden.");
 
 		this.iceCream = iceCream;
 	}
