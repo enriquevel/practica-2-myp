@@ -9,9 +9,9 @@ public class Practica2 {
 		Scanner scanner =  new Scanner(System.in);
 
 		Robot robot = new Robot();
-	
-		try{
-			while (true) {
+
+		while (true) {
+			try {
 				printOptions();
 				int option = scanner.nextInt();
 				switch (option) {
@@ -27,7 +27,7 @@ public class Practica2 {
 					case 4:
 						robot.confirmOrder();
 						break;
-					case 5: 
+					case 5:
 						robot.cancelOrder();
 						break;
 					case 6:
@@ -36,13 +36,19 @@ public class Practica2 {
 					case 7:
 						robot.deliverOrder();
 						break;
+					case 8:
+						robot.currentState();
+						break;
 					case 0:
 						System.out.println("Vuelve pronto.");
 						System.exit(0);
+					default:
+						System.out.println("ERROR: Opción incorrecta.");
 				}
+			} catch (InputMismatchException ime) {
+				System.out.println("ERROR: Entrada inválida.");
+				scanner.nextLine();
 			}
-		}catch(InputMismatchException ime){
-			System.out.println("ERROR: Entrada invalida.");
 		}
 	}
 
@@ -57,6 +63,7 @@ public class Practica2 {
 		System.out.println("(5). Cancelar orden.");
 		System.out.println("(6). Preparar orden");
 		System.out.println("(7). Solicitar entrega de orden.");
+		System.out.println("(8). Imprime estado del robot.");
 		System.out.println("(0). Salir.");
 	}
 }

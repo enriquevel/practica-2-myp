@@ -75,8 +75,7 @@ public class ReadyForDeliveryState implements RobotState {
 	public void deliverOrder() {
 		System.out.println("======= Entregando orden junto con tu ticket. =======");
 		Order order = this.cesarinRobot.getCurrentOrder();
-		Ticket ticket = order.generateTicket();			//Generando ticket.
-		this.cesarinRobot.setCurrentOrder(new Order());		//Borrando la orden actual
+		Ticket ticket = order.generateTicket();
 
 		System.out.println(ticket.toString());
 		System.out.println("======= Orden entregada. Tenga un buen dia :) =======");

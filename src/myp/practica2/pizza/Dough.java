@@ -28,4 +28,12 @@ public enum Dough {
 			default -> throw new IllegalArgumentException("Eleccion de masa invalida: " + choice);
 		};
 	}
+
+	public String toString(){
+		return switch (this) {
+			case NAPOLITAN -> "Napolitana";
+			case ROMAN -> "Romana";
+			case AMERICAN -> "Americana";
+		};
+	}
 }

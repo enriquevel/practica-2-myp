@@ -3,6 +3,7 @@ package myp.practica2.robot;
 import myp.practica2.icecream.*;
 import myp.practica2.pizza.*;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class TakingOrderState implements RobotState {
 	/** El robot que se encuentra en su estado tomando orden. */
     private Robot cesarinRobot;
 
-
+	/** Scanner compartido para leer entradas. */
 	private final Scanner scanner = new Scanner(System.in);
 
 	/**
@@ -38,31 +39,36 @@ public class TakingOrderState implements RobotState {
 	 */
     @Override
     public void takePizzaOrder() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Seleccione una pizza:\n")
-				.append("(1). Pizza de pepperoni\n")
-				.append("(2). Pizza margarita\n")
-				.append("(3). Pizza suprema\n")
-				.append("(4). Pizza de cuatro quesos\n")
-				.append("(5). Pizza mexicana");
-		System.out.println(sb.toString());
-		int pizzaChoice = scanner.nextInt();
-
-		sb.delete(0, sb.length());
-		sb.append("Seleccione el tipo de masa para la pizza:\n")
-				.append("(1). Napolitana\n")
-				.append("(2). Romana\n")
-				.append("(3). Americana\n");
-		System.out.println(sb.toString());
-		int doughChoice = scanner.nextInt();
-
 		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("Seleccione una pizza:\n")
+					.append("(1). Pizza de pepperoni\n")
+					.append("(2). Pizza margarita\n")
+					.append("(3). Pizza suprema\n")
+					.append("(4). Pizza de cuatro quesos\n")
+					.append("(5). Pizza mexicana");
+			System.out.println(sb.toString());
+			int pizzaChoice = scanner.nextInt();
+
+			sb.delete(0, sb.length());
+			sb.append("Seleccione el tipo de masa para la pizza:\n")
+					.append("(1). Napolitana\n")
+					.append("(2). Romana\n")
+					.append("(3). Americana");
+			System.out.println(sb.toString());
+			int doughChoice = scanner.nextInt();
+
 			Dough dough = Dough.get(doughChoice);
 			Pizza pizza = createPizza(pizzaChoice, dough);
 			cesarinRobot.getCurrentOrder().addPizza(pizza);
 			System.out.println("Pizza añadida a la orden.");
-		} catch (IllegalArgumentException iae) {
-			System.out.println("ERROR: "+ iae.getMessage());
+
+		} catch (IllegalArgumentException | IllegalStateException e) {
+			System.out.println("ERROR: " + e.getMessage());
+			scanner.nextLine();
+		} catch (InputMismatchException ime) {
+			System.out.println("ERROR: Entrada inválida.");
+			scanner.nextLine();
 		}
     }
 
@@ -90,55 +96,70 @@ public class TakingOrderState implements RobotState {
 	 */
     @Override
     public void takeIceCreamOrder() {
-		StringBuilder sb = new StringBuilder();
-        sb.append("Seleccione el sabor de su helado:")
-				.append("(1). Fresa")
-				.append("(2). Vainilla")
-				.append("(3). Chocolate");
-		System.out.println(sb.toString());
-		int flavorChoice = scanner.nextInt();
-
-		IceCream iceCream = getIceCream(flavorChoice);
-
-		Map<String, Integer> decoratingIngredientCount = new HashMap<>();
-		for (int i = 1; i <= 8; i ++)
-			decoratingIngredientCount.put(getDecoratingIngredient(i, null).getId(), 0);
-
-		sb.delete(0, sb.length());
-		sb.append("Seleccione su ingrediente extra: (Máximo 3 de cada uno)")
-				.append("(1). Gomitas de gusano")
-				.append("(2). Gomitas de panda")
-				.append("(3). Gomitas de aro")
-				.append("(4). Chispas de chocolate")
-				.append("(5). Malvaviscos")
-				.append("(6). Fresitas")
-				.append("(7). Manguitos")
-				.append("(8). Kiwis");
-
-		while (true) {
-			System.out.println("¿Agregar un ingrediente extra? (s/n)");
-			String choice = scanner.next();
-
-			if (choice.equalsIgnoreCase("n"))
-				break;
-
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append("Seleccione el sabor de su helado:\n")
+					.append("(1). Fresa\n")
+					.append("(2). Vainilla\n")
+					.append("(3). Chocolate");
 			System.out.println(sb.toString());
-			int ingredientChoice = scanner.nextInt();
+			int flavorChoice = scanner.nextInt();
+			IceCream iceCream = getIceCream(flavorChoice);
 
-			try {
-				DecoratingIngredient decorator = getDecoratingIngredient(ingredientChoice, null);
-				String id = decorator.getId();
+			Map<String, Integer> decoratingIngredientCount = new HashMap<>();
+			for (int i = 1; i <= 8; i++)
+				decoratingIngredientCount.put(getDecoratingIngredient(i, null).getId(), 0);
 
-				if (decoratingIngredientCount.get(id) < 3) {
-					iceCream = getDecoratingIngredient(ingredientChoice, iceCream);
-					decoratingIngredientCount.put(id, decoratingIngredientCount.get(id) + 1);
-					System.out.println("Se agregó: " + decorator.getName());
-				} else
-					System.out.println("No puedes agregar más de 3 " + decorator.getName() + " a tu helado.");
+			sb.delete(0, sb.length());
+			sb.append("Seleccione su ingrediente extra: (Máximo 3 de cada uno)\n")
+					.append("(1). Gomitas de gusano\n")
+					.append("(2). Gomitas de panda\n")
+					.append("(3). Gomitas de aro\n")
+					.append("(4). Chispas de chocolate\n")
+					.append("(5). Malvaviscos\n")
+					.append("(6). Fresitas\n")
+					.append("(7). Manguitos\n")
+					.append("(8). Kiwis");
 
-			} catch (IllegalArgumentException iae) {
-				System.out.println("ERROR: "+ iae.getMessage());
+			while (true) {
+				System.out.println("¿Agregar un ingrediente extra? (s/n)");
+				String choice = scanner.next();
+
+				if (choice.equalsIgnoreCase("n"))
+					break;
+
+				System.out.println(sb.toString());
+				int ingredientChoice = scanner.nextInt();
+
+				try {
+					DecoratingIngredient decorator = getDecoratingIngredient(ingredientChoice, null);
+					String id = decorator.getId();
+
+					if (decoratingIngredientCount.get(id) < 3) {
+						iceCream = getDecoratingIngredient(ingredientChoice, iceCream);
+						decoratingIngredientCount.put(id, decoratingIngredientCount.get(id) + 1);
+						System.out.println("Se agregó: " + decorator.getName());
+					} else
+						System.out.println("No puedes agregar más de 3 " + decorator.getName() + " a tu helado.");
+
+				} catch (IllegalArgumentException iae) {
+					System.out.println("ERROR: " + iae.getMessage());
+					scanner.nextLine();
+				} catch (InputMismatchException ime) {
+					System.out.println("ERROR: Entrada inválida.");
+					scanner.nextLine();
+				}
 			}
+
+			cesarinRobot.getCurrentOrder().addIceCream(iceCream);
+			System.out.println("Helado añadido a la orden.");
+
+		} catch (IllegalArgumentException | IllegalStateException e) {
+			System.out.println("ERROR: " + e.getMessage());
+			scanner.nextLine();
+		} catch (InputMismatchException ime) {
+			System.out.println("ERROR: Entrada inválida.");
+			scanner.nextLine();
 		}
 	}
 
