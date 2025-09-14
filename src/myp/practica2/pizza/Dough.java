@@ -25,7 +25,7 @@ public enum Dough {
 			case 1 -> NAPOLITAN;
 			case 2 -> ROMAN;
 			case 3 -> AMERICAN;
-			default -> throw new IllegalArgumentException("Invalid dough choice: " + choice);
+			default -> throw new IllegalArgumentException("Eleccion de masa invalida: " + choice);
 		};
 	}
 }

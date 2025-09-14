@@ -76,4 +76,13 @@ public class SleepingState implements RobotState {
     public void deliverOrder() {
         System.out.println("El robot no puede entregar una orden si está dormido.");
     }
+
+    
+	/**
+	 * Imprime en terminal la descripcion del estado actual del robot.
+	 */
+    @Override
+	public void description(){
+        System.out.println("\n"+ "-----------ESTADO DEL ROBOT: <DORMIDO>-----------" + "\n");
+    }
 }

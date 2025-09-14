@@ -33,16 +33,17 @@ public class Robot {
 	 * Constructor que inicializa al robot en un estado inicial dormido.
 	 */
     public Robot() {
-		this.state = sleepingState;
+		setState(sleepingState);
 		this.currentOrder = null;
     }
 
 	/**
-	 * Establece el estado del robot.
+	 * Establece el estado del robot e imprime en pantalla su nuevo estado.
 	 * @param state el estado al que el robot será establecido.
 	 */
 	public void setState(RobotState state) {
 		this.state = state;
+		this.state.description();
 	}
 
 	/**

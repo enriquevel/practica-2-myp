@@ -72,6 +72,14 @@ public class OrderConfirmedState implements RobotState {
 	 */
     @Override
     public void deliverOrder() {
-       System.out.println("Tu orden aún no ha sido preparada. Por favor, espera.");
+       System.out.println("Tu orden aún no ha sido preparada. Por favor, solicite al robot que inicie su preparacion.");
+    }
+
+    /**
+	 * Imprime en terminal la descripcion del estado actual del robot.
+	 */
+    @Override
+	public void description(){
+        System.out.println("\n"+ "-----------ESTADO DEL ROBOT: <ESPERANDO AUTORIZACION PARA COMENZAR LA PREPARACION>-----------" + "\n");
     }
 }

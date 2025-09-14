@@ -39,4 +39,10 @@ public interface RobotState {
 	 * Entrega la orden al cliente.
 	 */
     void deliverOrder();
+
+	/**
+	 * Imprime en terminal la descripcion del estado actual del robot.
+	 */
+	void description(); 
+
 }
